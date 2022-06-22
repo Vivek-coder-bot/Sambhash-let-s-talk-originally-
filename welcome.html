@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta http-equiv="refresh" content= "5">
+<title>welcome</title>
+</head>
+<body>
+	<center>
+		<ul>
+			
+			<li><a href="insert.php" class="nav-link">INSERT</a></li>
+			<li><a href="display.php" class="nav-link">DISPLAY</a></li>
+			<li><a href="update.php" class="nav-link">UOPDATE</a></li>
+			<li><a href="display.php" class="nav-link">DELETE</a></li>
+
+		</ul>
+
+	</center>
+
+</body>
+</html>
+
+	<?php
+	$cookie_value = time()+60*60*60*24;
+	echo $cookie_value;
+	setcookie('lastvisit',date("G:i,m/d/y"),$cookie_value);
+    ?>
+
+    <?php
+    if(isset($_COOKIE['lastvisit']))
+    {
+    	echo "your last visit is  : ".$_COOKIE['lastvisit']."<br>";
+    	setcookie('lastvisit',"",time()-3600);
+    }
+    else
+    {
+    	echo "this is your first visit";
+    }
+    ?>
